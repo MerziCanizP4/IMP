@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Pensión de Jubilación - IPM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            position: relative;
+            background-image: url('imagenes/edificio.png'); /* Cambia esta ruta a la ubicación de tu imagen */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 61, 165, 0.6); /* Superposición azul con opacidad */
+            z-index: 0;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin: 0;
+            z-index: 1;
+            position: relative;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .contact {
+            margin-top: 20px;
+            z-index: 1;
+            position: relative;
+            font-size: 18px;
+        }
+
+        .header .contact i {
+            margin-right: 10px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #003DA5;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #003DA5;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1523dd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>IPM</h1>
+        <div class="contact">
+            <p><i class="fas fa-envelope"></i> insprevm@ipm.org.gt</p>
+            <p><i class="fas fa-phone"></i> +502 2305 4900</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Cálculo de Pensión de Jubilación</h2>
+        <form id="jubilacionForm" onsubmit="return false;">
+            <label for="primerNombre">Primer Nombre:</label>
+            <input type="text" id="primerNombre" required>
+
+            <label for="segundoNombre">Segundo Nombre:</label>
+            <input type="text" id="segundoNombre">
+
+            <label for="primerApellido">Primer Apellido:</label>
+            <input type="text" id="primerApellido" required>
+
+            <label for="segundoApellido">Segundo Apellido:</label>
+            <input type="text" id="segundoApellido">
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" required>
+
+            <label for="correo">Correo Electrónico (opcional):</label>
+            <input type="email" id="correo">
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" required>
+
+            <label for="genero">Género:</label>
+            <select id="genero" required>
+                <option value="" disabled selected>Seleccionar opción</option>
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+            </select>
+
+            <label for="pertenencia">Pertenencia Sociolingüística:</label>
+            <select id="pertenencia" required>
+                <option value="" disabled selected>Seleccionar opción</option>
+                <option value="mestizo">Mestizo</option>
+                <option value="indigena">Indígena</option>
+                <option value="afrodescendiente">Afrodescendiente</option>
+                <option value="otra">Otra</option>
+            </select>
+
+            <label for="añosCotizados">Años Cotizados:</label>
+            <input type="number" id="añosCotizados" required>
+
+            <h3>Ingrese los salarios de los últimos 5 años:</h3>
+            <label for="salario1">Salario Año 1:</label>
+            <input type="number" id="salario1" required>
+
+            <label for="salario2">Salario Año 2:</label>
+            <input type="number" id="salario2" required>
+
+            <label for="salario3">Salario Año 3:</label>
+            <input type="number" id="salario3" required>
+
+            <label for="salario4">Salario Año 4:</label>
+            <input type="number" id="salario4" required>
+
+            <label for="salario5">Salario Año 5:</label>
+            <input type="number" id="salario5" required>
+
+            <button type="button" onclick="calcularPension()">Calcular Pensión</button>
+        </form>
+    </div>
+
+    <script src="IMP CLC.js"></script> <!-- Enlace a tu archivo de JavaScript -->
+</body>
+</html>

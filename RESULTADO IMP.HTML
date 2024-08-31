@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Pensión</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            position: relative;
+            background-image: url('imagenes/edificio.png'); /* Cambia esta ruta a la ubicación de tu imagen */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 61, 165, 0.6); /* Superposición azul con opacidad */
+            z-index: 0;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin: 0;
+            z-index: 1;
+            position: relative;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .resultado p {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #003DA5; /* Azul IPM */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #1523dd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Resultados de Pensión</h1>
+    </div>
+
+    <div class="container">
+        <div id="resultado" class="resultado"></div>
+        <button onclick="volver()">Volver al Formulario</button>
+    </div>
+
+    <script>
+        // Recuperar resultados del localStorage
+        const primerNombre = localStorage.getItem('primerNombre');
+        const segundoNombre = localStorage.getItem('segundoNombre');
+        const primerApellido = localStorage.getItem('primerApellido');
+        const segundoApellido = localStorage.getItem('segundoApellido');
+        const edad = localStorage.getItem('edad');
+        const correo = localStorage.getItem('correo');
+        const telefono = localStorage.getItem('telefono');
+        const genero = localStorage.getItem('genero');
+        const pertenencia = localStorage.getItem('pertenencia');
+        const añosCotizados = localStorage.getItem('añosCotizados');
+        const salarioPromedio = localStorage.getItem('salarioPromedio');
+        const montoPension = localStorage.getItem('montoPension');
+
+        // Mostrar resultados
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = `
+            <p><strong>Primer Nombre:</strong> ${primerNombre}</p>
+            <p><strong>Segundo Nombre:</strong> ${segundoNombre}</p>
+            <p><strong>Primer Apellido:</strong> ${primerApellido}</p>
+            <p><strong>Segundo Apellido:</strong> ${segundoApellido}</p>
+            <p><strong>Edad:</strong> ${edad}</p>
+            <p><strong>Correo Electrónico:</strong> ${correo}</p>
+            <p><strong>Teléfono:</strong> ${telefono}</p>
+            <p><strong>Género:</strong> ${genero}</p>
+            <p><strong>Pertenencia Sociolingüística:</strong> ${pertenencia}</p>
+            <p><strong>Años Cotizados:</strong> ${añosCotizados}</p>
+            <p><strong>Salario Promedio:</strong> ${salarioPromedio} unidades monetarias en Quetzles </p>
+            <p><strong>Monto Aproximado de Pensión:</strong> ${montoPension} unidades monetarias en Quetzales </p>
+        `;
+
+        function volver() {
+            window.location.href = 'Pagina Principal de IPM.html'; // Volver al formulario
+        }
+    </script>
+</body>
+</html>
